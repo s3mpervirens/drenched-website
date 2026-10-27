@@ -56,6 +56,8 @@
           } else {
             trailerUrl.searchParams.set("enablejsapi", "1");
             trailerUrl.searchParams.set("origin", window.location.origin);
+            trailerUrl.searchParams.set("autoplay", "1");
+            trailerUrl.searchParams.set("mute", "1");
             trailerFrame.src = trailerUrl.toString();
             trailerFrame.hidden = false;
           }
