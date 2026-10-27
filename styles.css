@@ -194,10 +194,10 @@ a:focus-visible, button:focus-visible {
   background: #06181d;
 }
 .hero-video .ratio {
-  position: static;
-  width: auto;
+  position: relative;
+  width: 640px;
   max-width: 100%;
-  padding-top: 0;
+  aspect-ratio: 16 / 9;
   background: transparent;
 }
 .hero-video video {
