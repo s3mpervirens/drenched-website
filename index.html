@@ -35,13 +35,31 @@
 
     <div class="hero-video">
       <div class="ratio">
-      <iframe
-        src="https://www.youtube.com/embed/z-3d5f_GDVw"
-        title="Drenched release trailer"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-      </iframe>
+        <iframe
+          id="release-trailer"
+          title="Drenched release trailer"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          hidden
+          allowfullscreen>
+        </iframe>
+        <p id="trailer-preview-note" class="trailer-preview-note" hidden>
+          YouTube video embeds need a web address. Open this page through a local web server, such as VS Code Live Server, or
+          <a href="https://www.youtube.com/watch?v=z-3d5f_GDVw">watch the trailer on YouTube</a>.
+        </p>
+        <noscript><a href="https://www.youtube.com/watch?v=z-3d5f_GDVw">Watch the Drenched release trailer on YouTube</a></noscript>
+        <script>
+          const trailerUrl = new URL("https://www.youtube.com/embed/z-3d5f_GDVw");
+          const trailerFrame = document.getElementById("release-trailer");
+          if (window.location.origin === "null") {
+            document.getElementById("trailer-preview-note").hidden = false;
+          } else {
+            trailerUrl.searchParams.set("enablejsapi", "1");
+            trailerUrl.searchParams.set("origin", window.location.origin);
+            trailerFrame.src = trailerUrl.toString();
+            trailerFrame.hidden = false;
+          }
+        </script>
       </div>
     </div>
 
